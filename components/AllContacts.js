@@ -38,11 +38,11 @@ export default function CoachDashboard({ session }) {
                     contacts.map((contact, i) => {
                         return (
                             <tr key={i}>
-                                <td>{contact.prosepct_name}</td>
+                                <td>{contact.prospect_name}</td>
                                 <td>{contact.prospect_email}</td>
                                 <td>{contact.prospect_phone}</td>
                                 <td>{contact.notes}</td>
-                                <td><ButtonLink pageLink={  } linkText="Learn More"/></td>
+                                <td><ButtonLink pageLink={ '/prospects/' + contact.id } linkText="See Details"/></td>
                             </tr>
                         )
                         
