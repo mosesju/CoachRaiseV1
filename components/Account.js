@@ -5,8 +5,8 @@ export default function Account({ session }) {
   const [loading, setLoading] = useState(true)
   const [username, setUsername] = useState(null)
   const [website, setWebsite] = useState(null)
-  const [avatar_url, setAvatarUrl] = useState(null)
   const [sport, setSport] = useState(null);
+  const [role, setRole] = useState(null);
 
   useEffect(() => {
     getProfile()
@@ -19,7 +19,7 @@ export default function Account({ session }) {
 
       let { data, error, status } = await supabase
         .from('profiles')
-        .select(`username, website, avatar_url`)
+        .select(`username, sport, role`)
         .eq('id', user.id)
         .single()
 
@@ -28,10 +28,11 @@ export default function Account({ session }) {
       }
 
       if (data) {
-        setUsername(data.username)
-        setWebsite(data.website)
-        setAvatarUrl(data.avatar_url)
-        setSport(data.sport)
+        console.log(role)
+        // setUsername(data.username)
+        // setWebsite(data.website)
+        // setAvatarUrl(data.avatar_url)
+        // setSport(data.sport)
       }
     } catch (error) {
       alert(error.message)
@@ -40,7 +41,7 @@ export default function Account({ session }) {
     }
   }
 
-  async function updateProfile({ username, website, avatar_url }) {
+  async function updateProfile({ username, website, sport, role }) {
     try {
       setLoading(true)
       const user = supabase.auth.user()
@@ -49,8 +50,8 @@ export default function Account({ session }) {
         id: user.id,
         username,
         website,
-        avatar_url,
         sport,
+        role,
         updated_at: new Date(),
       }
 
@@ -93,6 +94,13 @@ export default function Account({ session }) {
         />
       </div>
       <div>
+        <label htmlFor="role">Role</label>
+        <div onChange={(e) => setRole(e.target.value)}>
+          <input type="radio" value="coach" name="role"/>Coach
+          <input type="radio" value="Administrator" name="role"/>Administrator
+        </div>
+      </div>
+      <div>
         <label htmlFor="sport">Sport</label>
         <input
           id="sport"
@@ -104,7 +112,7 @@ export default function Account({ session }) {
       <div>
         <button
           className="button block primary"
-          onClick={() => updateProfile({ username, website, avatar_url })}
+          onClick={() => updateProfile({ username, role, sport  })}
           disabled={loading}
         >
           {loading ? 'Loading ...' : 'Update'}

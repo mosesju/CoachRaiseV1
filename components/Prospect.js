@@ -3,6 +3,7 @@ import { supabase } from '../utils/supabaseClient'
 import { useForm } from "react-hook-form";
 import Link from 'next/link';
 import Auth from './Auth';
+import ButtonLink from './ButtonLink';
 
 export default function Prospect({ session }) {
     const { register, handleSubmit, formState: {errors} } = useForm();
@@ -24,11 +25,15 @@ export default function Prospect({ session }) {
     }
     return (
         <div>
-            <button>
+            <ButtonLink pageLink={'/CoachDashboard'} linkText={'Coach Dashboard'} />
+            {/* <button>
                 <Link href='/CoachDashboard'>
                     <a>CoachDashboard</a>
                 </Link>
-            </button>
+            </button> */}
+            <ButtonLink pageLink={'/DevelopmentDashboard'} linkText={'Development Dashboard'} />
+            <ButtonLink pageLink={'/AccountPage'} linkText={'Account'} />
+
             <form onSubmit={ handleSubmit(onSubmit) }>
                 <input type="text" placeholder="Name" name="name" {...register("prospect_name")} />
                 <input type="text" placeholder="Email" name="email" {...register("prospect_email")} />
