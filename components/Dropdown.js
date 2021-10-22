@@ -33,6 +33,7 @@ const Dropdown = ({ label, options, selected, onSelectedChange })=>{
                 className="item"
                 onClick={()=>{
                     onSelectedChange(option)
+                    console.log(option)
                 }}
             >
                 {option.username}
@@ -51,7 +52,7 @@ const Dropdown = ({ label, options, selected, onSelectedChange })=>{
                     }} 
                     className={`ui selection dropdown ${open ? 'visible active' : ''}`}
                 >
-                    <i></i>
+                    <h1>Click me</h1>
                     <div>{ selected.label }</div>
                     <div onClick={()=>{setOpen(!open)}} className={`menu ${open ? 'visible transition':''}`}>{renderedOptions}</div>
                 </div>
