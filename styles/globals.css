@@ -377,3 +377,10 @@ button.primary,
   animation: spin 1s linear infinite;
   filter: invert(1);
 }
+
+.markCompleteButton {
+  background-color: #4caf50;
+}
+.markIncompleteButton {
+  background-color: #f44336;
+}

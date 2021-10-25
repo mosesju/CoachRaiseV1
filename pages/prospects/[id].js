@@ -7,7 +7,6 @@ const Details = () => {
     // this is a security issue. Figure it out.
     pathname = pathname.split('/');
     const contactId = pathname[2].toString();
-    console.log(contactId)
     const [contact, setContact] = useState({})
 
     // const [contact, setContact] = useState('')
@@ -44,6 +43,7 @@ const Details = () => {
 export default Details;
 
 // Probably the way you should do it
+
 // export const getStaticPaths = async({session}) => {
 //     const user = supabase.auth.user().id
 //     console.log(user)
