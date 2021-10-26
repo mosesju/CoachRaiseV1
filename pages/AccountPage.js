@@ -1,4 +1,5 @@
-import Account from '../components/Account'
+import Account from '../components/UpdateAccount'
+import ViewAccount from '../components/ViewAccount'
 import { supabase } from '../utils/supabaseClient'
 import {useState,useEffect} from 'react'
 import NavBar from '../components/NavBar'
@@ -17,7 +18,8 @@ export default function AccountPage() {
       <div>
         <NavBar />
         <h1>Account</h1>
-        <Account session={ session } />
+        <ViewAccount />
+        <Account />
       </div>
       
     );

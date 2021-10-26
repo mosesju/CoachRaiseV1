@@ -1,12 +1,22 @@
 import { useState, useEffect } from 'react'
 import { supabase } from '../utils/supabaseClient'
 
-export default function Account({ session }) {
+export default function UpdateAccount() {
   const [loading, setLoading] = useState(true)
   const [username, setUsername] = useState(null)
   const [website, setWebsite] = useState(null)
   const [sport, setSport] = useState(null);
   const [role, setRole] = useState(null);
+  const preSession = {user:{}}
+  const [session, setSession] = useState(preSession)
+
+  useEffect(() => {
+    setSession(supabase.auth.session())
+    console.log(session)
+    supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session)
+    })
+  })
 
   useEffect(() => {
     getProfile()
@@ -71,6 +81,7 @@ export default function Account({ session }) {
 
   return (
     <div className="form-widget">
+      <h1>Update Account</h1>
       <div>
         <label htmlFor="email">Email</label>
         <input id="email" type="text" value={session.user.email} disabled />
