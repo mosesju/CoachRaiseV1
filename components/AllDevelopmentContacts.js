@@ -4,7 +4,8 @@ import ButtonLink from './ButtonLink'
 
 
 export default function AllDevelopmentContacts({ session }) {
-    const [contacts, setContacts] = useState([])
+    const preContact = [{profiles:{}}]
+    const [contacts, setContacts] = useState(preContact)
     useEffect(()=>{
         const fetchData = async (user) => {
             const { data, error } = await supabase
@@ -15,7 +16,7 @@ export default function AllDevelopmentContacts({ session }) {
                     prospect_email,
                     prospect_phone,
                     notes,
-                    profiles (
+                    profiles:user_id (
                         username
                     )
                     
@@ -25,7 +26,7 @@ export default function AllDevelopmentContacts({ session }) {
                 // profiles (
                     // username
                     // )
-                
+            console.log(data)
             return data;
         }
         const user = supabase.auth.user().id;

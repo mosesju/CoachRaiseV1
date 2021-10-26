@@ -55,12 +55,12 @@ const RequestDetails = () => {
                 <h3>Current Status: { requestDetails.status ?  'Complete' : 'Incomplete' }</h3>
                 <h4>Move Notes</h4>
                 <p>{ requestDetails.notes }</p>
-                <h4>{ requestDetails.contacts.prospect_phone }</h4>
+                <h4>Phone Number: { requestDetails.contacts.prospect_phone }</h4>
                 
                 <Link href={ 'mailto:' + requestDetails.contacts.prospect_email }>
-                    <h4>{ requestDetails.contacts.prospect_email }</h4>
+                    <h4>Email: { requestDetails.contacts.prospect_email }</h4>
                 </Link>
-                <h4>Notes about Prospect</h4>
+                <h4>Notes about { requestDetails.contacts.prospect_name }</h4>
                 <p>{ requestDetails.contacts.notes } </p> 
                 { requestDetails.status ? <MarkIncompleteButton buttonText="Incomplete" requestId='1'/> : <MarkCompleteButton buttonText="Complete" requestId='1' /> } 
             </div>

@@ -25,15 +25,6 @@ export default function Prospect({ session }) {
     }
     return (
         <div>
-            <ButtonLink pageLink={'/CoachDashboard'} linkText={'Coach Dashboard'} />
-            {/* <button>
-                <Link href='/CoachDashboard'>
-                    <a>CoachDashboard</a>
-                </Link>
-            </button> */}
-            <ButtonLink pageLink={'/DevelopmentDashboard'} linkText={'Development Dashboard'} />
-            <ButtonLink pageLink={'/AccountPage'} linkText={'Account'} />
-
             <form onSubmit={ handleSubmit(onSubmit) }>
                 <input type="text" placeholder="Name" name="name" {...register("prospect_name")} />
                 <input type="text" placeholder="Email" name="email" {...register("prospect_email")} />

@@ -1,7 +1,11 @@
-NavBar = () => {
+import ButtonLink from './ButtonLink'
+const NavBar = () => {
     return (
         <div>
-            <h1>Navigate</h1>
+            <ButtonLink pageLink={'/'} linkText={'Home'}/>
+            <ButtonLink pageLink={'/CoachDashboard'} linkText={'Coach Dashboard'} />
+            <ButtonLink pageLink={'/DevelopmentDashboard'} linkText={'Development Dashboard'} />
+            <ButtonLink pageLink={'/AccountPage'} linkText={'Account'} />
         </div>
     )
 }
