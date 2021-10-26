@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import NavBar from "../components/NavBar";
 // const request = require("request");
 const Airtable = require('airtable');
 
@@ -30,6 +31,7 @@ const Prospect = () => {
     }
     return(
         <div>
+          <NavBar />
             <form onSubmit={ handleSubmit(onSubmit) }>
                 <input type="text" placeholder="Name" name="name" {...register("name")} />
                 <input type="text" placeholder="Email" name="email" {...register("email")} />

@@ -26,6 +26,7 @@ export default function RequestMoves() {
 
 
     const onSubmit = async (formInput) =>{
+        console.log(formInput)
         const { data, error } = await supabase
             .from('stewardship_requests')
             .insert([
@@ -41,6 +42,7 @@ export default function RequestMoves() {
                     username,
                     id
                 `)
+            console.log(data)
             return data;
         }
         const fetchContacts = async() => {
@@ -69,7 +71,7 @@ export default function RequestMoves() {
     
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-            <h1>CoachDropdown</h1>
+            <h1>Request Moves</h1>
             {/* register is what's returned in the JSON */}
             {/* Coach making move */}
             <label>Choose Coach</label>
@@ -80,7 +82,7 @@ export default function RequestMoves() {
             </select>
             {/* Contact for move */}
             <label>Choose Contact</label>
-            <select name="contact" {...register("contact")}>
+            <select name="contact" {...register("contact_id")}>
                 {contacts.map(contact=>
                     <option key={contact.id} value={contact.id}>{contact.prospect_name}</option>
                 )}
