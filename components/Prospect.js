@@ -25,6 +25,7 @@ export default function Prospect({ session }) {
     }
     return (
         <div>
+            <h1>Add Prospect</h1>
             <form onSubmit={ handleSubmit(onSubmit) }>
                 <input type="text" placeholder="Name" name="name" {...register("prospect_name")} />
                 <input type="text" placeholder="Email" name="email" {...register("prospect_email")} />
