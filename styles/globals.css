@@ -335,7 +335,7 @@ button.primary,
 }
 
 .gradient-text {
-  background: -webkit-linear-gradient(left, #d84f51 30%, #29405d 60%);
+  background: -webkit-linear-gradient(left, #7C9681 30%, #4B5C4E 60%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

@@ -8,7 +8,7 @@ export default function CoachDashboard({ session }) {
             <NavBar />
             Development Dashboard
             <AllDevelopmentContacts />
-            {/* <RequestMoves /> */}
+            <RequestMoves />
         </div>
     )
 }

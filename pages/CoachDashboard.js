@@ -6,7 +6,7 @@ export default function CoachDashboard({ session }) {
         <div>
             <NavBar />
             CoachDashboard
-            {/* <AllContacts /> */}
+            <AllContacts />
             <ViewMoveRequests />
         </div>
     )
