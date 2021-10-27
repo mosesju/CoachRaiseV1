@@ -1,5 +1,8 @@
 import ButtonLink from './ButtonLink'
+import { useState } from 'react'
+
 const NavBar = () => {
+    const [session, setSesstion] = useState();
     return (
         <div>
             <ButtonLink pageLink={'/'} linkText={'Home'}/>
